@@ -2,7 +2,7 @@
 
 ## Pedestrian Model Overview
 <div align='center'>
-<img src=./img-folder/pedestrian_overview.png width=60% />
+<img src=./Img-Folder/pedestrian_overview.png width=60% />
 </div>
 <center>Figure 1: Pedestrian Model Overview</center>
 
@@ -10,7 +10,7 @@ The system architecture for indoor pedestrian tracking uses multiple smartphone 
 
 ### Multi-Sensor Fusion for Indoor Localization
 <div align='center'>
-<img src=./img-folder/pedestrian_system_architecture.png width=60% />
+<img src=./Img-Folder/pedestrian_system_architecture.png width=60% />
 </div>
 <center>Figure 1: Multi-Sensor Fusion for Indoor Localization</center>
 
@@ -18,7 +18,7 @@ As shown in Figure 1, the proposed system leverages multiple smartphone sensors,
 
 ### Stair Detection Algorithm
 <div align='center'>
-<img src=./img-folder/origin_data.png width=50% /> 
+<img src=./Img-Folder/origin_data.png width=50% /> 
 </div> 
 <center>Figure 2: Stair Detection Data</center>
 
@@ -26,15 +26,15 @@ Figure 2 illustrates the peak characteristics of the actual stair detection data
 
 ### Trajectory Estimation and Backtracking
 <div align='center'> 
-<img src=./img-folder/backtrack.png width=60% /> 
+<img src=./Img-Folder/backtrack.png width=60% /> 
 </div> 
 <center>Figure 3: Trajectory Estimation and Backtracking</center>
 As shown in Figure 3, the system integrates the speed and bearing data to estimate the pedestrian's trajectory in real-time. It also features a backtracking capability, allowing the pedestrian to navigate back to their starting point by reversing the trajectory. This feature is especially useful in complex indoor environments such as multi-story buildings, providing seamless navigation without requiring any pre-installed infrastructure or GPS.
 
 ## Speed DNN Vehicle Model Overview
-<!-- ![vehicle system overview](./img-folder/overview.png) -->
+<!-- ![vehicle system overview](./Img-Folder/overview.png) -->
 <div align='center'>
-<img src=./img-folder/overview.png width=60% />
+<img src=./Img-Folder/overview.png width=60% />
 </div>
 <center>Figure 4: Vehicle System Overview</center>
 
@@ -46,25 +46,25 @@ We designed the speed network structure into three modules, which are Embedding 
 
 ### Embedding Layer
 
-<!-- ![Feature Engineering](./img-folder/feature_engineering.png) -->
+<!-- ![Feature Engineering](./Img-Folder/feature_engineering.png) -->
 <div align='center'>
-<img src=./img-folder/feature_engineering.png width=40% />
+<img src=./Img-Folder/feature_engineering.png width=40% />
 </div>
 <center>Figure 5: Feature Engineering</center>
 
 The embedding layer is used to process and fuse the features of inertial data. Before introducing the specific embedding layer network design, we need to explain the content of the feature extraction module. As shown in Figure 5, we calculated the second-level eigenvalues of the three-axis accelerometer and three-axis gyroscope's indications per axis: time-domain feature and frequency feature. The time domain feature consists of maximum, minimum, mean and standard deviation. The frequency domain features are obtained from the spectrogram solved by the Fast Fourier Transform, which in turn includes mean, standard deviation, information entropy, energy, skewness and kurtosis. The so-called skewness refers to the skew direction and degree of statistical data; the so-called kurtosis refers to the sharpness of the peak of the value data.
 
-<!-- ![Posture Calculate](./img-folder/posture.png) -->
+<!-- ![Posture Calculate](./Img-Folder/posture.png) -->
 <div align='center'>
-<img src=./img-folder/posture.png width=50% />
+<img src=./Img-Folder/posture.png width=50% />
 </div>
 <center>Figure 6: Posture Calculate</center>
 
 Due to the difference between the fixed position of the mobile phone in the car, we need to use the sensor data of the mobile phone to calculate the inertial navigation of the vehicle, and we need to do an attitude solution. The attitude solution scheme is shown in Figure 6. By combining the rotation matrix calculated by the scheme with the original IMU data, we can obtain the IMU data under the standard attitude that we need for the subsequent calculation.
 
-<!-- ![Embedding Layer](./img-folder/embedding_layer.png) -->
+<!-- ![Embedding Layer](./Img-Folder/embedding_layer.png) -->
 <div align='center'>
-<img src=./img-folder/embedding_layer.png width=50% />
+<img src=./Img-Folder/embedding_layer.png width=50% />
 </div>
 <center>Figure 7: Embeddiong Layer</center>
 
@@ -72,9 +72,9 @@ The embedding layer takes the features of the accelerometer (ACCE) and the gyros
 
 ### Representation Layer
 
-<!-- ![Embedding Layer](./img-folder/representation_layer.png) -->
+<!-- ![Embedding Layer](./Img-Folder/representation_layer.png) -->
 <div align='center'>
-<img src=./img-folder/representation_layer.png width=60% />
+<img src=./Img-Folder/representation_layer.png width=60% />
 </div>
 <center>Figure 8: Representation Layer</center>
 
@@ -82,9 +82,9 @@ For the design of the representation layer, we directly choose a representative 
 
 ### Regression Layer
 
-<!-- ![Regression Layer](./img-folder/regression_layer.png) -->
+<!-- ![Regression Layer](./Img-Folder/regression_layer.png) -->
 <div align='center'>
-<img src=./img-folder/regression_layer.png width=60% />
+<img src=./Img-Folder/regression_layer.png width=60% />
 </div>
 <center>Figure 9: Regression Layer</center>
 
